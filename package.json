@@ -1,0 +1,24 @@
+{
+  "name": "puppeteer-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc",
+    "scrape": "npm run build && node dist/scraper.js",
+    "dev": "nodemon --watch 'src/**/*.ts' src/server.ts",
+    "start": "node dist/server.js",
+    "test": "node src/site-mapper.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^22.2.0",
+    "sitemapper": "^3.2.8"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^7.0.4",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.3.3"
+  }
+}
