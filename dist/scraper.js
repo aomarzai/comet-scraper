@@ -1,6 +1,4 @@
 "use strict";
-// import type { Page } from "puppeteer";
-// import puppeteer from "puppeteer";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -136,25 +134,13 @@ function scrapeEvent(url, browser) {
         });
     });
 }
-// async function scrape() {
-//   const sitemap = new Sitemapper({});
-//   const browser = await puppeteer.launch();
-//   const response = await sitemap.fetch(
-//     "https://www.cometpingpong.com/sitemap.xml"
-//   );
-//   const { sites } = response;
-//   for (const s of sites) {
-//     await scrapeEvent(s, browser);
-//   }
-//   await browser.close();
-// }
 function scrape() {
     return __awaiter(this, void 0, void 0, function* () {
         const sitemap = new sitemapper_1.default({});
         const browser = yield puppeteer_1.default.launch();
         const response = yield sitemap.fetch("https://www.cometpingpong.com/sitemap.xml");
         const { sites } = response;
-        const filteredSites = sites.filter(site => site.includes('live-music-calendar'));
+        const filteredSites = sites.filter((site) => site.includes("live-music-calendar"));
         for (const s of filteredSites) {
             yield scrapeEvent(s, browser);
         }
